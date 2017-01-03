@@ -1,0 +1,25 @@
+{
+  "name": "mean-comments-application",
+  "version": "1.0.0",
+  "description": "MEAN stack application",
+  "main": "server.js",
+  "author": "Balachandar",
+  "dependencies": {
+    "body-parser": "latest",
+    "express": "latest",
+    "method-override": "latest",
+    "mongoose": "latest",
+    "morgan": "latest"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dkbalachandar/meanstack-comments-application.git"
+  },
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/dkbalachandar/meanstack-comments-application/issues"
+  }
+}

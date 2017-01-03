@@ -1,0 +1,71 @@
+<html ng-app="commentModule">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MEAN Stack Comments Application</title>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- load bootstrap -->
+    <style>
+        html {
+            overflow-y: scroll;
+        }
+
+        body {
+            padding-top: 50px;
+        }
+    </style>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <!-- load angular -->
+    <script src="core.js"></script>
+
+</head>
+<!-- Set the controller and get all the comments -->
+<body ng-controller="commentController">
+<div class="container">
+
+    <div class="jumbotron text-center">
+        <h1>Comments List <span class="label label-info">{{ comments.length }}</span></h1>
+    </div>
+
+    <div id="comment-list" class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+
+            <div class="checkbox" ng-repeat="comment in comments">
+                <label>
+                    <input type="checkbox" ng-click="deleteComment(comment._id)"> <b>{{ comment.userName }} </b> : {{
+                    comment.comment }}
+                </label>
+            </div>
+
+        </div>
+    </div>
+    <!-- FORM TO Enter Comments -->
+    <div id="comment-form" class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+            <form>
+                <div class="form-group">
+                    <table>
+                        <tr>
+                            <td><b>User Name:</b></td>
+                            <td><input type="text" class="form-control input-lg text-center" placeholder="User Name" ng-model="formData.userName"></td>
+                        </tr>
+                        <tr>
+                            <td><b>Comments:</b></td>
+                            <td><textarea rows="4" cols="40" class="form-control input-lg text-center" placeholder="Comments"
+                                          ng-model="formData.comment"> </textarea></td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- createComments() WILL CREATE NEW Comments -->
+                <button type="submit" class="btn btn-primary btn-lg" ng-click="createComment()">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
